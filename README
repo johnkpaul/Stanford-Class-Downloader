@@ -1,13 +1,7 @@
-The only dependency is the python requests library 
-http://docs.python-requests.org/en/latest/index.html
-
-Installation is as easy as 
-pip install requests
-
-After that, you can run the python script with whichever class
+You can run this python script with whatever class you would like
 python downloader.py ml
-python downloader.py db
 python downloader.py ai
+python downloader.py db
 
 Once that command has finished running (it will take a while), you will have a ml/db/ai directory filled with every lecture currently published. You can run the command again in the future and it will only download the newly added lectures. 
 

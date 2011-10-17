@@ -1,5 +1,5 @@
 #!/usr/bin/python -O
-import sys,os,requests,re,urllib
+import sys,os,re,urllib,urllib2
 
 class_url_fragment = "http://www.%s-class.org/course/video/html5_embed?video_id=%d"
 src_re = re.compile("src=\"(.*?)\"")
@@ -12,6 +12,9 @@ def download_file(video_url,video_filename):
     local_file.close()
     print "downloading video " + video_filename
 
+def get_url_content(url):
+    page = urllib2.urlopen(url)
+    return page.read()
 try:
     class_name = sys.argv[1];
     if not os.path.exists(class_name):
@@ -19,8 +22,7 @@ try:
     video_index = 1;
     while(True):
         url = class_url_fragment % (class_name, video_index)
-        r = requests.get(url)
-        content = r.content;
+        content = get_url_content(url)
         if("Invalid video id" in content):
             break
         else:
