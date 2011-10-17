@@ -34,7 +34,4 @@ try:
         video_index = video_index + 1;
 except Exception as inst:
     print "USAGE: ./downloader.py ml|db|ai"
-    print type(inst)     # the exception instance
-    print dir(inst)
-    print str(inst)
 
